@@ -11,6 +11,28 @@ let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=$
 
 
 
+$("#search").on("click", function (event) {
+    event.preventDefault();
+
+    // Read search string from form
+    searchText = $("#search-text").val();
+    
+    var $temperature = $(".temp");
+    $(".temp").text("Temp: <Not Available>");
+
+    var $wind = $(".wind");
+    $(".wind").text("Wind: <Not Available>");
+
+    var $wind = $(".humidity");
+    $(".humidity").text("Humidity: <Not Available>");
+
+    console.log();   
+})
+
+
+
+
+
 fetch(queryURL)
     .then(function (response) {
         return response.json();
