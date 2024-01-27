@@ -1,0 +1,10 @@
+/* CSS styles for the title bar */
+.title-bar {
+    /* background-color: #333; */
+    background: linear-gradient(to right, #335FB7, #262068);
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
