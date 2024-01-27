@@ -86,6 +86,66 @@ function getCityWeather(latitude, longitude) {
     
          // Initialise search text field to blank
          $("#search-text").val("");
+         
+         // Clear out all appended images
+         $("#card1-image").empty("")
+         $("#card2-image").empty("")
+         $("#card3-image").empty("")
+         $("#card4-image").empty("")
+         $("#card5-image").empty("")
+
+
+        //
+        //card2-date
+        
+        // !!! VALIDATION TODO !!!
+        $("#card1-date").text(forecastFiveDaysArray[0].weatherDate);
+        $("#card2-date").text(forecastFiveDaysArray[1].weatherDate);
+        $("#card3-date").text(forecastFiveDaysArray[2].weatherDate);
+        $("#card4-date").text(forecastFiveDaysArray[3].weatherDate);
+        $("#card5-date").text(forecastFiveDaysArray[4].weatherDate);
+
+
+        //
+        var imageUrl = "https://openweathermap.org/img/wn/" + forecastFiveDaysArray[0].icon + "@2x.png";
+        $("#card1-image").append($("<img>", { src: imageUrl, alt: forecastFiveDaysArray[0].description }));      
+
+        imageUrl = "https://openweathermap.org/img/wn/" + forecastFiveDaysArray[1].icon + "@2x.png";
+        $("#card2-image").append($("<img>", { src: imageUrl, alt: forecastFiveDaysArray[1].description }));      
+
+        imageUrl = "https://openweathermap.org/img/wn/" + forecastFiveDaysArray[2].icon + "@2x.png";
+        $("#card3-image").append($("<img>", { src: imageUrl, alt: forecastFiveDaysArray[2].description }));      
+
+        imageUrl = "https://openweathermap.org/img/wn/" + forecastFiveDaysArray[3].icon + "@2x.png";
+        $("#card4-image").append($("<img>", { src: imageUrl, alt: forecastFiveDaysArray[3].description }));      
+
+        imageUrl = "https://openweathermap.org/img/wn/" + forecastFiveDaysArray[4].icon + "@2x.png";
+        $("#card5-image").append($("<img>", { src: imageUrl, alt: forecastFiveDaysArray[4].description }));      
+
+        //
+
+
+        $("#card1-temp").text("Temp: " + forecastFiveDaysArray[0].temperatureCelsius + " " + degreesSymbol + "C");
+        $("#card2-temp").text("Temp: " + forecastFiveDaysArray[1].temperatureCelsius + " " + degreesSymbol + "C");
+        $("#card3-temp").text("Temp: " + forecastFiveDaysArray[2].temperatureCelsius + " " + degreesSymbol + "C");
+        $("#card4-temp").text("Temp: " + forecastFiveDaysArray[3].temperatureCelsius + " " + degreesSymbol + "C");
+        $("#card5-temp").text("Temp: " + forecastFiveDaysArray[4].temperatureCelsius + " " + degreesSymbol + "C");
+
+        $("#card1-wind").text("Wind: " + forecastFiveDaysArray[0].windSpeedKPH.toFixed(2) + " KPH");
+        $("#card2-wind").text("Wind: " + forecastFiveDaysArray[1].windSpeedKPH.toFixed(2) + " KPH");
+        $("#card3-wind").text("Wind: " + forecastFiveDaysArray[2].windSpeedKPH.toFixed(2) + " KPH");
+        $("#card4-wind").text("Wind: " + forecastFiveDaysArray[3].windSpeedKPH.toFixed(2) + " KPH");
+        $("#card5-wind").text("Wind: " + forecastFiveDaysArray[4].windSpeedKPH.toFixed(2) + " KPH");
+
+        $("#card1-humidity").text("Humidity: " + forecastFiveDaysArray[0].humidityPercent + "%");
+        $("#card2-humidity").text("Humidity: " + forecastFiveDaysArray[1].humidityPercent + "%");
+        $("#card3-humidity").text("Humidity: " + forecastFiveDaysArray[2].humidityPercent + "%");
+        $("#card4-humidity").text("Humidity: " + forecastFiveDaysArray[3].humidityPercent + "%");
+        $("#card5-humidity").text("Humidity: " + forecastFiveDaysArray[4].humidityPercent + "%");
+
+        //
+
+
     });     
 }
 
@@ -157,9 +217,12 @@ function createButton(latitude, longitude) {
     });
 
     $button.attr({
+        'type': 'button',
         'data-latitude': latitude,
         'data-longitude': longitude
     });
+
+    // $button.attr("type", "button");
 
     var $buttonWrapper = $("<div>");
     $buttonWrapper.append($button);
