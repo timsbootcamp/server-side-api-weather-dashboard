@@ -1,3 +1,9 @@
+h5 {
+    padding: 0px;
+    margin: 0px;   
+}
+
+
 /* CSS styles for the title bar */
 .title-bar {
     /* background-color: #333; */
@@ -29,11 +35,9 @@
 
 
 .box {
-    /* background-color: #f0f0f0; */
     border: 2px solid black;
-    padding: 20px;
-    /* text-align: center; */
-    line-height: 1.5; /* Adjust line height as needed */
+    padding: 0px 0px 10px 10px;  
+    margin: 0px;
   }
 
 
@@ -62,3 +66,11 @@
 #add-less-top-spacing {
     padding: 15px 0px 0px 0px;
 } 
+
+
+#remove-top-spacing {
+    padding: 0px;
+    margin: 0px;
+}
+
+
