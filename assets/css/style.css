@@ -22,6 +22,12 @@
 }
 
 
+
+.removeSpacing {
+    padding: 0px;
+}
+
+
 .box {
     /* background-color: #f0f0f0; */
     border: 2px solid black;
@@ -31,12 +37,28 @@
   }
 
 
-  .no-gutters .col-lg-3 {
+.card-color  {
+    background: #2D3E50;  
+    color: #fff; /* Text color */
+}
+
+
+
+.col-sm-9 {
     padding-right: 0;
-    padding-left: 0; 
+}
+
+
+.hide {
+    display: none;          
   }
 
-  .custom-col {
-    width: 40%; /* Adjust the width as needed */
-  }
 
+
+#add-top-spacing {
+    padding: 30px 0px 20px 0px;
+} 
+
+#add-less-top-spacing {
+    padding: 15px 0px 0px 0px;
+} 

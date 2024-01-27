@@ -52,8 +52,12 @@ function getCityLatitudeLongitude(city) {
         getCityWeather(latitude, longitude);
     })
     .catch(function (error) {
-        alert(city + " is not a valid city");
-        
+        // Initialise search text field to blank
+        $("#search-text").val("");
+
+        // Hide current Weather Header
+        $("#current-weather-header").addClass("hide");
+        alert(city + " is not a valid city");      
     });        
 }
 
@@ -76,8 +80,12 @@ function getCityWeather(latitude, longitude) {
          $(".city-header-current").append($("<img>", { src: imageUrl, alt: forecastToday.description }));      
 
          $(".temp").text("Temp: " + forecastToday.temperatureCelsius + degreesSymbol + "C");
-         $(".wind").text("Wind: " + forecastToday.windSpeedKPH + " KPH");
+         $(".wind").text("Wind: " + forecastToday.windSpeedKPH.toFixed(2) + " KPH");
          $(".humidity").text("Humidity: " + forecastToday.humidityPercent + "%");
+         $("#current-weather-header").removeClass("hide");
+    
+         // Initialise search text field to blank
+         $("#search-text").val("");
     });     
 }
 
@@ -139,7 +147,7 @@ function getTimeFromDateString(dateIncludingTime) {
 function createButton(latitude, longitude) {
     var $button = $("<button>", {
         text: city, 
-        class: "btn light-blue-btn large-button", 
+        class: "btn light-blue-btn large-button mb-3 w-100", 
         click: function() { 
             var latitude = $(this).attr("data-latitude");
             var longitude = $(this).attr("data-longitude");
