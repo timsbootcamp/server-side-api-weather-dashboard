@@ -1,7 +1,9 @@
 
 const API_Key_OpenWeatherMap = "bda75bc7b1ffd81c271304eac312b65c";
+const degreesSymbol = '\u00B0'
 
-let city = "London";
+//let city = "London";
+let city;
 
 let latitude;
 let longitude;
@@ -16,53 +18,83 @@ $("#search").on("click", function (event) {
 
     // Read search string from form
     searchText = $("#search-text").val();
+    city = searchText;
     
-    var $temperature = $(".temp");
-    $(".temp").text("Temp: <Not Available>");
+    // // var $temperature = $(".temp");
+    // $(".temp").text("Temp: <Not Available>");
 
-    var $wind = $(".wind");
-    $(".wind").text("Wind: <Not Available>");
+    // // var $wind = $(".wind");
+    // $(".wind").text("Wind: <Not Available>");
 
-    var $wind = $(".humidity");
-    $(".humidity").text("Humidity: <Not Available>");
+    // // var $wind = $(".humidity");
+    // $(".humidity").text("Humidity: <Not Available>");
 
+
+    getCityLatitudeLongitude(city);
+    
     console.log();   
 })
 
 
 
-
-
-fetch(queryURL)
+function getCityLatitudeLongitude(city) {
+    
+    let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_Key_OpenWeatherMap}`;
+    
+    fetch(queryURL)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-
         latitude = data.coord.lat;
-        longitude = data.coord.lon;
+        longitude = data.coord.lon;      
 
-        let query2URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_Key_OpenWeatherMap}`;
-        return fetch(query2URL);
+        getCityWeather(latitude, longitude);
     })
-    .then(response => response.json())
-    .then(data2 => {
-        let forecastToday = getWeatherDetails(data2.list[0]);
-        let forecastFiveDaysArray = filterForecastNextFiveDays(data2);
-    });
+    .catch(function (error) {
+        alert(city + " is not a valid city");
+        
+    });        
+}
 
 
+function getCityWeather(latitude, longitude) {
 
-    function getWeatherDetails(data) {
+    let queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_Key_OpenWeatherMap}`;
+    
+    fetch(queryURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+         let forecastToday = getWeatherDetails(data.list[0]);
+         let forecastFiveDaysArray = filterForecastNextFiveDays(data);
+         createButton(latitude, longitude);
+         $(".city-header-current").text(city + " (" + (forecastToday.weatherDate) + ")");
+       
+         var imageUrl = "https://openweathermap.org/img/wn/" + forecastToday.icon + "@2x.png";
+         $(".city-header-current").append($("<img>", { src: imageUrl, alt: forecastToday.description }));      
+
+         $(".temp").text("Temp: " + forecastToday.temperatureCelsius + degreesSymbol + "C");
+         $(".wind").text("Wind: " + forecastToday.windSpeedKPH + " KPH");
+         $(".humidity").text("Humidity: " + forecastToday.humidityPercent + "%");
+    });     
+}
+
+
+function getWeatherDetails(data) {
+
+    console.log("");
 
     return {
+        description: data.weather[0].description,
         weatherDate: getDateInFormat_ddmmyyyy(data.dt_txt),
         temperatureCelsius: data.main.temp,
         windSpeedKPH: data.wind.speed * 3.6,
-        humidityPercent: data.main.humidity
+        humidityPercent: data.main.humidity,
+        icon: data.weather[0].icon
     };
 }
-
 
 
 function filterForecastNextFiveDays(data) {
@@ -101,3 +133,28 @@ function getTimeFromDateString(dateIncludingTime) {
     return dayjsInstance.hour();
 }   
 
+
+
+
+function createButton(latitude, longitude) {
+    var $button = $("<button>", {
+        text: city, 
+        class: "btn light-blue-btn large-button", 
+        click: function() { 
+            var latitude = $(this).attr("data-latitude");
+            var longitude = $(this).attr("data-longitude");
+
+            console.log("");
+        }
+    });
+
+    $button.attr({
+        'data-latitude': latitude,
+        'data-longitude': longitude
+    });
+
+    var $buttonWrapper = $("<div>");
+    $buttonWrapper.append($button);
+    $("#buttons-view").append($buttonWrapper);
+    console.log("");
+}

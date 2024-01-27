@@ -16,7 +16,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-2">
 
         <form>
           <div class="mb-3">
@@ -24,17 +24,19 @@
             <input type="text" class="form-control" id="search-text">
           </div>
 
-          <button id="search" type="submit" class="btn light-blue-btn">Search</button>
+          <button id="search" type="submit" class="btn light-blue-btn large-button">Search</button>
+
+          <div id="buttons-view"></div>
 
         </form>
 
-
       </div>
       
-      <div class="col-sm-8">
+      <div class="col-sm-10">
 
         <div class="box">
-          <h5>London</h5>
+          <div class="city-header-current-image"></div>
+          <h5 class="city-header-current"></h5>
 
           <div class="temp"></div>
           <br>
@@ -45,8 +47,54 @@
 
         <h5>5-Day Forecast:</h5>
 
-      </div>
-
+        <!-- 5 day Forecast - BEGIN -->
+        <div class="row no-gutters">
+          <div class="col-sm-">
+            <div class="row">
+              <div class="col-lg-2 bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Card Title 1</h5>
+                    <p class="card-text">This is some text</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Card Title 2</h5>
+                    <p class="card-text">This is some text</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Card Title 3</h5>
+                    <p class="card-text">This is some text</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Card Title 4</h5>
+                    <p class="card-text">This is some text</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Card Title 5</h5>
+                    <p class="card-text">This is some text</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 5 day Forecast - BEGIN -->
     
     </div>
   </div>

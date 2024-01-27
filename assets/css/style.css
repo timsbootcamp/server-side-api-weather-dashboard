@@ -13,8 +13,13 @@
 .light-blue-btn {
     background-color: #5098E6; 
     color: #fff; /* Text color */
-  }
+}
 
+
+.large-button {
+    padding: 10px 50px; 
+    font-size: 16px; 
+}
 
 
 .box {
@@ -23,5 +28,15 @@
     padding: 20px;
     /* text-align: center; */
     line-height: 1.5; /* Adjust line height as needed */
+  }
+
+
+  .no-gutters .col-lg-3 {
+    padding-right: 0;
+    padding-left: 0; 
+  }
+
+  .custom-col {
+    width: 40%; /* Adjust the width as needed */
   }
 
