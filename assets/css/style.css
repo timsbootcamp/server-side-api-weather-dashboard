@@ -13,8 +13,19 @@
 .light-blue-btn {
     background-color: #5098E6; 
     color: #fff; /* Text color */
-  }
+}
 
+
+.large-button {
+    padding: 10px 50px; 
+    font-size: 16px; 
+}
+
+
+
+.removeSpacing {
+    padding: 0px;
+}
 
 
 .box {
@@ -25,3 +36,29 @@
     line-height: 1.5; /* Adjust line height as needed */
   }
 
+
+.card-color  {
+    background: #2D3E50;  
+    color: #fff; /* Text color */
+}
+
+
+
+.col-sm-9 {
+    padding-right: 0;
+}
+
+
+.hide {
+    display: none;          
+  }
+
+
+
+#add-top-spacing {
+    padding: 30px 0px 20px 0px;
+} 
+
+#add-less-top-spacing {
+    padding: 15px 0px 0px 0px;
+} 
