@@ -8,3 +8,20 @@
     padding: 20px;
     text-align: center;
 }
+
+
+.light-blue-btn {
+    background-color: #5098E6; 
+    color: #fff; /* Text color */
+  }
+
+
+
+.box {
+    /* background-color: #f0f0f0; */
+    border: 2px solid black;
+    padding: 20px;
+    /* text-align: center; */
+    line-height: 1.5; /* Adjust line height as needed */
+  }
+
