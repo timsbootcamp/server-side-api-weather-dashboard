@@ -3,7 +3,7 @@ const API_Key_OpenWeatherMap = "bda75bc7b1ffd81c271304eac312b65c";
 
 
 // Constants for Open Weather Map API - get latitude and longitude by City Name
-const baseUrl_get_latlong_by_cityName = "http://api.openweathermap.org/data/2.5/weather";
+const baseUrl_get_latlong_by_cityName = "https://api.openweathermap.org/data/2.5/weather";
 
 // Constants for Open Weather Map API - get City Weather by Latitude and Longitude
 const baseUrl_get_CityWeather_by_latlong = "https://api.openweathermap.org/data/2.5/forecast";
