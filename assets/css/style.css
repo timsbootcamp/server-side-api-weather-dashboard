@@ -1,14 +1,8 @@
-h5 {
-    padding: 0px;
-    margin: 0px;   
-}
-
-
 /* CSS styles for the title bar */
+
 .title-bar {
-    /* background-color: #333; */
     background: linear-gradient(to right, #335FB7, #262068);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: #fff;
     padding: 20px;
@@ -16,21 +10,32 @@ h5 {
 }
 
 
-.light-blue-btn {
+/* Styling for left side of screen control - BEGIN */
+
+/* Search button styling */
+.searchButton {
     background-color: #5098E6; 
     color: #fff; /* Text color */
 }
 
 
-.large-button {
-    padding: 10px 50px; 
-    font-size: 16px; 
+/* City buttons styling */
+.cityButtons {
+    background-color: #AEAEAE; 
+    color: black; /* Text color */ 
 }
 
 
+/* City button hover over styling */
+.cityButtons:hover {
+    color: #1A1A1A; /* Change 'your_hover_color' to the desired hover color */
+    font-weight: bold;
+}
 
-.removeSpacing {
-    padding: 0px;
+
+/* when hover over button - it displays coloured box shadow */
+.btn-primary-hover-shadow:hover {
+    box-shadow: 0px 4px 8px  #73fbfd;
 }
 
 
@@ -38,39 +43,49 @@ h5 {
     border: 2px solid black;
     padding: 0px 0px 10px 10px;  
     margin: 0px;
-  }
+}
+/* Styling for left side of screen control - END */
 
 
+
+
+/* Styling for right side of screen control - BEGIN */
+
+/* Headings for City and 5 day forecast title  */
+.city-header-current, .five-day-forecast-title {
+    font-weight: bold;
+}
+
+
+/* 5 day forecast title */
+.five-day-forecast-title {
+    padding: 30px 0px 20px 0px;
+    margin: 10px;
+}
+
+
+/* 5 cards for 5 day forecast */
 .card-color  {
+    /* Background colour */
     background: #2D3E50;  
-    color: #fff; /* Text color */
+    
+    /* Text color */
+    color: #fff; 
 }
 
 
-
-.col-sm-9 {
-    padding-right: 0;
-}
-
-
+/* used to hide  */
 .hide {
     display: none;          
-  }
-
-
-
-#add-top-spacing {
-    padding: 30px 0px 20px 0px;
-} 
-
-#add-less-top-spacing {
-    padding: 15px 0px 0px 0px;
-} 
-
-
-#remove-top-spacing {
-    padding: 0px;
-    margin: 0px;
 }
 
 
+/* Styling for right side of screen control - END */
+
+
+
+
+
+
+
+  
