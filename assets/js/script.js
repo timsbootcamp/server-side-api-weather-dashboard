@@ -31,7 +31,8 @@ $("#search").on("click", function (event) {
 
 
     getCityLatitudeLongitude(city);
-    
+
+
     console.log();   
 })
 
@@ -50,6 +51,7 @@ function getCityLatitudeLongitude(city) {
         longitude = data.coord.lon;      
 
         getCityWeather(latitude, longitude);
+        createButton(latitude, longitude);
     })
     .catch(function (error) {
         // Initialise search text field to blank
@@ -73,7 +75,7 @@ function getCityWeather(latitude, longitude) {
     .then(function (data) {
          let forecastToday = getWeatherDetails(data.list[0]);
          let forecastFiveDaysArray = filterForecastNextFiveDays(data);
-         createButton(latitude, longitude);
+
          $(".city-header-current").text(city + " (" + (forecastToday.weatherDate) + ")");
        
          var imageUrl = "https://openweathermap.org/img/wn/" + forecastToday.icon + "@2x.png";
@@ -211,6 +213,8 @@ function createButton(latitude, longitude) {
         click: function() { 
             var latitude = $(this).attr("data-latitude");
             var longitude = $(this).attr("data-longitude");
+
+            getCityWeather(latitude, longitude);
 
             console.log("");
         }
