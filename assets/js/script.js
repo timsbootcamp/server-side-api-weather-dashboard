@@ -3,15 +3,10 @@ const API_Key_OpenWeatherMap = "bda75bc7b1ffd81c271304eac312b65c";
 
 
 // Constants for Open Weather Map API - get latitude and longitude by City Name
-// const firstPart_to_get_latlong_by_cityName = "http://api.openweathermap.org/data/2.5/weather?q=";
-// const secondPart_to_get_latlong_by_cityName = "&appid=";
 const baseUrl_get_latlong_by_cityName = "http://api.openweathermap.org/data/2.5/weather";
 
 // Constants for Open Weather Map API - get City Weather by Latitude and Longitude
-//const firstPart_to_get_CityWeather_by_latlong = "https://api.openweathermap.org/data/2.5/forecast?";
-//const secondPart_to_get_CityWeather_by_latlong = "&units=metric&appid=";
 const baseUrl_get_CityWeather_by_latlong = "https://api.openweathermap.org/data/2.5/forecast";
-
 
 
 // Constants for Open Weather Map API - Image Icon Urls 
@@ -232,6 +227,7 @@ function addCityToArray(name, latitude, longitude) {
 // Dynamically update HTML using variable cityName and data object passed to this function as parameter
 function updateWeatherOnScreen(cityName, data) {
 
+    // Validation on data.list.length
     if (data.list.length <40) {
         return false;
     }
@@ -239,6 +235,7 @@ function updateWeatherOnScreen(cityName, data) {
     // Populate Weather Data for today from data object
     let forecastToday = getWeatherDetails(data.list[0]);
 
+    // Validate on forecastToday that it is populated
     if (!forecastToday) {
         return false;
     }
@@ -246,6 +243,7 @@ function updateWeatherOnScreen(cityName, data) {
     // Populate Weather Data for Forecast Days 1 to 5  from data object
     let forecastFiveDaysArray = filterForecastNextFiveDays(data);
 
+    // Validate on forecastFiveDaysArray.length
     if (forecastFiveDaysArray.length !==5) {
         return false;
     }
@@ -282,9 +280,6 @@ function updateWeatherOnScreen(cityName, data) {
     for (var i = 0; i <= 4; i++) {
         $(`#card${i+1}-image`).empty("");
     }
-
-
-    // !!! VALIDATION TODO !!!
 
 
     // Dynamically add dates for the Forecast Days 1 to 5
