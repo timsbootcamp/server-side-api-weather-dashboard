@@ -60,7 +60,7 @@ function getCityLatitudeLongitude(city) {
         latitude = data.coord.lat;
         longitude = data.coord.lon;      
 
-        getCityWeather(latitude, longitude);
+        getCityWeather(city, latitude, longitude);
         createButton(city, latitude, longitude);
         addCityToArray(city, latitude, longitude)
         writeToLocalStorage();
