@@ -2,14 +2,24 @@
 const API_Key_OpenWeatherMap = "bda75bc7b1ffd81c271304eac312b65c";
 const degreesSymbol = '\u00B0'
 
+// Key for local storage
+const localStorageKey_WeatherDashboard= "weather-dashboard";
+
+
 //let city = "London";
 let city;
 
 let latitude;
 let longitude;
 
+let citiesArray = [];
 
 let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_Key_OpenWeatherMap}`;
+
+
+
+
+readFromLocalStorage();
 
 
 
@@ -51,7 +61,9 @@ function getCityLatitudeLongitude(city) {
         longitude = data.coord.lon;      
 
         getCityWeather(latitude, longitude);
-        createButton(latitude, longitude);
+        createButton(city, latitude, longitude);
+        addCityToArray(city, latitude, longitude)
+        writeToLocalStorage();
     })
     .catch(function (error) {
         // Initialise search text field to blank
@@ -64,7 +76,7 @@ function getCityLatitudeLongitude(city) {
 }
 
 
-function getCityWeather(latitude, longitude) {
+function getCityWeather(city, latitude, longitude) {
 
     let queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_Key_OpenWeatherMap}`;
     
@@ -206,7 +218,7 @@ function getTimeFromDateString(dateIncludingTime) {
 
 
 
-function createButton(latitude, longitude) {
+function createButton(city, latitude, longitude) {
     var $button = $("<button>", {
         text: city, 
         class: "btn light-blue-btn large-button mb-3 w-100", 
@@ -214,7 +226,7 @@ function createButton(latitude, longitude) {
             var latitude = $(this).attr("data-latitude");
             var longitude = $(this).attr("data-longitude");
 
-            getCityWeather(latitude, longitude);
+            getCityWeather(city, latitude, longitude);
 
             console.log("");
         }
@@ -231,5 +243,43 @@ function createButton(latitude, longitude) {
     var $buttonWrapper = $("<div>");
     $buttonWrapper.append($button);
     $("#buttons-view").append($buttonWrapper);
+    console.log("");
+}
+
+
+
+function addCityToArray(name, latitude, longitude) {
+    let city = {
+        name: name,
+        latitude: latitude,
+        longitude: longitude
+    };   
+    citiesArray.push(city);
+}
+
+
+function writeToLocalStorage() {
+
+    // Converts the calendarData array to the JSON notation that the value represents
+    var jsonCitiesData = JSON.stringify(citiesArray);
+  
+    // Write to localstorage on key
+    localStorage.setItem(localStorageKey_WeatherDashboard, jsonCitiesData);
+}
+
+
+function readFromLocalStorage() {
+
+    var storedData = localStorage.getItem(localStorageKey_WeatherDashboard);
+
+    if (storedData) {
+ 
+        citiesArray = JSON.parse(storedData);
+        
+        for (var i = 0; i < citiesArray.length; i++) {
+            createButton(citiesArray[i].name, citiesArray[i].latitude, citiesArray[i].longitude);
+        }
+
+    }
     console.log("");
 }
