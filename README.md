@@ -4,7 +4,7 @@ Challenge 8 of edX Boot Camp (Front End) to create a Weather Dashboard.
 ## Description
 
 For Weekly Challenge 8 of the edX Bootcamp Front End Course, I was given a task of writing code to create a Weather Dashboard
-for a traveller you would like to see the weather outlook for multiple cities.
+for a traveller who would like to see the weather outlook for multiple cities.
 
 
 > What was my motivation?
@@ -23,7 +23,7 @@ my Server Side API. Javascript, jQuery and Day.js library knowledge that I learn
 > What problem did it solve?
 
 It solved the problem of providing a traveller to see the weather outlook for multiple cities
-and helping plan their trip accordingly.
+and helping them plan their trip accordingly.
 
 
 > What did I learn?
@@ -38,7 +38,8 @@ I have used appropriate constants and variables that are understandable. There a
 The first time a city is searched for then 2 * API calls are made to the Open Weather Map API, then I'm storing the latitude
 and longitude in the attributes of the buttons so if that city is clicked on then only 1 API call is made to get the weather information.
 
-Data is stored and retrieved from local storage.
+Data is stored for the location and their latitude and longitude detals. This is also retrieved from local storage and application
+updated accordingly.
 
 Validation added so if the city does not exist then an alert message is displayed. Also, validation has been added so that 
 data is only parsed if valid data structures exist. 
