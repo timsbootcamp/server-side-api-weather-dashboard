@@ -88,7 +88,6 @@ function getCityLatitudeLongitude(cityName) {
 
         // Hide current Weather Header
         $("#current-weather-header").addClass("hide");
-        console.log(url);
         alert(`'${cityName}' is not a valid city`);      
     });        
 }

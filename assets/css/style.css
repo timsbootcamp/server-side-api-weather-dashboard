@@ -41,7 +41,7 @@
 
 .box {
     border: 2px solid black;
-    padding: 0px 0px 10px 10px;  
+    padding: 0px 0px 5px 10px;
     margin: 0px;
 }
 /* Styling for left side of screen control - END */
@@ -63,6 +63,10 @@
     margin: 10px;
 }
 
+.removeSpacing {
+    padding: 0px;
+}
+
 
 /* 5 cards for 5 day forecast */
 .card-color  {
@@ -81,3 +85,5 @@
 
 
 /* Styling for right side of screen control - END */
+
+
