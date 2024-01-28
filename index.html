@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-gb">
 
+<!-- Head - BEGIN -->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +10,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Server Side API - Weather Dashboard</title>
+  <title>Weather Dashboard</title>
 </head>
+<!-- Head - END -->
+
+
+<!-- Body - BEGIN -->
 
 <body>
 
@@ -19,19 +25,24 @@
     <div class="row">
       <div class="col-sm-3">
 
-        <form>
+        <!-- User form to enter a city name to search for -->
+        <form id="city-search-form" action="javascript:void(0)">
           <div class="mb-3">
+            <!-- Text label -->
             <label for="search-text" class="form-label">
-              <div id="add-less-top-spacing">
+              <div>
                 <h4>Search for a City:</h4>
               </div>
-              
             </label>
-            <input type="text" class="form-control" id="search-text">
+
+            <!-- Text input control -->
+            <input type="text" class="form-control" id="search-text" required placeholder="Enter a city name">
           </div>
 
-          <button id="search" type="submit" class="btn light-blue-btn large-button mb-3 w-100">Search</button>
+          <!-- Search button for user to click on to search for a city -->
+          <button id="search" type="submit" class="btn btn-primary-hover-shadow searchButton mb-3 w-100">Search</button>
 
+          <!-- Accommodating space for dynamic buttons for various cities -->
           <div id="buttons-view"></div>
 
         </form>
@@ -40,29 +51,34 @@
 
       <div id="current-weather-header" class="col-sm-9 hide">
 
+        <!-- Display a black box and inside display current weather for city -->
         <div class="box">
           <div class="city-header-current-image"></div>
           <h5 class="city-header-current"></h5>
 
+          <!-- Accommodates Temperature -->
           <div class="temp"></div>
           <br>
+
+          <!-- Accommodates Wind -->
           <div class="wind"></div>
           <br>
+
+          <!-- Accommodates Humidity -->
           <div class="humidity"></div>
         </div>
-        
-        <div id="add-top-spacing">        
-          <h5>5-Day Forecast:</h5>      
-        </div>
+
+        <h5 class="five-day-forecast-title">5-Day Forecast:</h5>
 
         <!-- 5 day Forecast - BEGIN -->
         <div class="container-fluid">
+
+          <!-- Display 5 cards and displays city name, icon weather image, temperature, wind speed and humidity -->
           <div class="row">
-            <div class="col-sm-10 removeSpacing">
-              <!-- Your existing content -->
+            <div class="col-sm-10">
 
               <div class="row remove-top-spacing">
-                <!-- Start of card loop -->
+                <!-- Start of card 1 -->
                 <div class="col-md-2 mb-3 pr-0">
                   <div class="card card-color">
                     <!-- Card content -->
@@ -75,9 +91,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- End of card loop -->
+                <!-- End of card 1 -->
 
-                <!-- Start of card loop -->
+                <!-- Start of card 2 -->
                 <div class="col-md-2 mb-3 pr-0">
                   <div class="card card-color">
                     <!-- Card content -->
@@ -90,9 +106,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- End of card loop -->
+                <!-- End of card 2 -->
 
-                <!-- Start of card loop -->
+                <!-- Start of card 3 -->
                 <div class="col-md-2 mb-3 pr-0">
                   <div class="card card-color">
                     <!-- Card content -->
@@ -105,9 +121,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- End of card loop -->
+                <!-- End of card 3 -->
 
-                <!-- Start of card loop -->
+                <!-- Start of card 4 -->
                 <div class="col-md-2 mb-3 pr-0">
                   <div class="card card-color">
                     <!-- Card content -->
@@ -120,9 +136,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- End of card loop -->
+                <!-- End of card 4 -->
 
-                <!-- Start of card loop -->
+                <!-- Start of card 5 -->
                 <div class="col-md-2 mb-3 pr-0">
                   <div class="card card-color">
                     <!-- Card content -->
@@ -135,7 +151,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- End of card loop -->
+                <!-- End of card 5 -->
 
               </div>
             </div>
@@ -145,15 +161,30 @@
       </div>
     </div>
 
+    <!-- Link to Popper.js library for positioning poppers in web applications -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"></script>
+
+
+    <!-- Link to Bootstrap library -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"></script>
+
+
+    <!-- Link to jquery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Link to day.js library for date handling -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+
+    <!-- Link to main Javascript file  for Weather Dashboard -->
     <script src="./assets/js/script.js"></script>
 </body>
+<!-- Body - END -->
+
 
 </html>
